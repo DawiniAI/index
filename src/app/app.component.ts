@@ -46,7 +46,7 @@ export class AppComponent {
     //init google login
     this.platform.ready().then(() => {
       GoogleAuth.initialize({
-        clientId: environment.google.clientId,
+        clientId: environment.clientId,
         scopes: ['profile', 'email'],
         grantOfflineAccess: true,
       });
