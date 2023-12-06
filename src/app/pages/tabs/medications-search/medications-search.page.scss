@@ -1,0 +1,116 @@
+$ion-padding: 16px;
+ion-content {
+  --background: linear-gradient(#545fdd, #545fdd00);
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    .toolbar {
+      padding-top: $ion-padding;
+      .left-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 80%;
+        height: 60px;
+        padding-left: 16px;
+        ion-avatar {
+          width: 60px !important;
+          height: 60px !important;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .user-info {
+          padding-left: $ion-padding;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 50px;
+          .title {
+            display: block;
+            font-weight: 600;
+          }
+          .type {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .searchbar {
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      margin-right: $ion-padding;
+      margin-left: $ion-padding;
+      .input {
+        height: 44px;
+        background: white;
+        border-color: var(--ion-color-primary);
+        border-width: thin;
+        border-style: solid;
+        border-radius: 3px;
+        border-radius: 30px;
+        padding-inline-start: 16px;
+        padding-inline-end: 16px;
+        margin-bottom: 16px;
+        overflow: hidden;
+        font-size: 15px;
+        color: #989898;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        ion-icon {
+          font-size: 20px;
+          color: #989898;
+          margin-right: $ion-padding;
+        }
+width: 100%;
+      }
+      .advanced-search {
+        height: 44px;
+        width: 44px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-color: var(--ion-color-primary);
+        border-width: thin;
+        border-style: solid;
+        border-radius: 100%;
+        ion-icon {
+          font-size: 25px;
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+    .content {
+      width: 100%;
+      height: fit-content;
+      border-top-right-radius: 30px;
+      border-top-left-radius: 30px;
+      min-height: 600px;
+      background: white;
+      .ai-cta {
+        overflow: scroll;
+        overflow: scroll;
+        max-height: 700px;
+      }
+    }
+    .medications-list {
+      padding-bottom: 120px;
+      overflow: scroll;
+      max-height: 700px;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<ion-content>
+  <div class="wrapper">
+    <div class="toolbar">
+      <div class="left-content">
+        <ion-avatar>
+          <img [src]="userImg" />
+        </ion-avatar>
+        <div class="user-info">
+          <ion-text class="title" color="light">
+            {{greeting}}, {{userName}}
+          </ion-text>
+          <ion-text class="type" color="light"> {{userType}} </ion-text>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="searchbar">
+      <div class="input">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-input
+          type="text"
+          placeholder="Search By {{searchType}}"
+          [(ngModel)]="searchTerm"
+          [clearInput]="true"
+          (ionInput)="onSearchInput($event)"
+        ></ion-input>
+      </div>
+      <div class="advanced-search" [routerLink]="['/advanced-search']">
+        <ion-icon name="options-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="content ion-padding">
+      <ion-text
+        *ngIf="shouldShowYouCanSearchNow()"
+        class="ion-text-center"
+        color="primary"
+      >
+        <h1>You can search now 😉</h1>
+      </ion-text>
+      <div
+        class="ai-cta"
+        *ngIf="searchResults.length === 0 && aiResults.length > 0 && searchTerm.length > 3"
+      >
+        <ion-text color="primary">
+          <h1>
+            Do You Mean: <br />
+            <span
+              style="
+                font-size: 15px;
+                text-transform: lowercase;
+                text-decoration: underline;
+              "
+              >{{suggestedTerm}}?</span
+            >
+          </h1>
+        </ion-text>
+        <app-medication-card [medication]="aiResults[0]"
+        [routerLink]="['/medication', aiResults[0].id]"></app-medication-card>
+        <ion-text color="primary">
+          <h1>Search Results:</h1>
+        </ion-text>
+        <ion-list class="medications-list">
+          <app-medication-card
+            *ngFor="let medication of aiResults.slice(1, 10)"
+            [medication]="medication"
+            [routerLink]="['/medication', medication.id]"
+          ></app-medication-card>
+        </ion-list>
+      </div>
+      <ion-list class="medications-list">
+        <app-medication-card
+          *ngFor="let medication of searchResults.slice(1, 100)"
+          [medication]="medication"
+          [routerLink]="['/medication', medication.id]"
+        ></app-medication-card>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

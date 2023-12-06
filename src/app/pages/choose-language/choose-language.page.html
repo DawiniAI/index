@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="wrapper">
+    <div class="toolbar">
+      <div class="header ion-text-center">
+        <ion-text color="light"> Dawini.AI - داويني </ion-text>
+      </div>
+    </div>
+    <div class="logo">
+      <img src="assets/icons/logo-transparent.png" alt="" />
+    </div>
+    <div class="spacer"></div>
+    <div class="content ion-padding">
+      <div class="title">
+        <ion-text color="primary">
+          <h1>Choose Language:</h1>
+        </ion-text>
+      </div>
+      <div class="buttons">
+        <div class="button" [routerLink]="['/login']">
+          <ion-button color="primary" expand="block"> English 🇺🇸 </ion-button>
+        </div>
+        <div class="button" [routerLink]="['/login']">
+          <ion-button color="dark" expand="block"> 🇪🇬 العربية </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

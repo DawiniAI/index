@@ -1,0 +1,118 @@
+<ion-content>
+  <div class="wrapper">
+    <div class="toolbar">
+      <div class="left-content">
+        <ion-avatar>
+          <img [src]="userImg" />
+        </ion-avatar>
+        <div class="user-info">
+          <ion-text class="title" color="light">
+            {{greeting}}, {{userName}}
+          </ion-text>
+          <ion-text class="type" color="light"> {{userType}} </ion-text>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="searchbar">
+      <div class="input">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-input
+          type="text"
+          placeholder="Search By {{searchType}}"
+          [(ngModel)]="searchTerm"
+          [clearInput]="true"
+          (ionInput)="onSearchInput($event)"
+        ></ion-input>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="content ion-padding">
+      <ion-text color="primary">
+        <h3>Search By...</h3>
+      </ion-text>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start"
+            >Trade Name</ion-checkbox
+          >
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start"
+            >Active Ingredient</ion-checkbox
+          >
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start"
+            >Color</ion-checkbox
+          >
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start"
+            >Company</ion-checkbox
+          >
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start">Form</ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start"
+            >Group</ion-checkbox
+          >
+        </ion-item>
+        <ion-item>
+          <ion-checkbox labelPlacement="end" justify="start"
+            >Pharmacology</ion-checkbox
+          >
+        </ion-item>
+      </ion-list>
+      <hr
+        style="
+          width: 100%;
+          height: 2px;
+          background: var(--ion-color-primary);
+          opacity: 70%;
+        "
+      />
+
+      <ion-text color="primary">
+        <h3>Price</h3>
+      </ion-text>
+      <ion-range
+        style="margin-left: 16px; margin-right: 16px"
+        aria-label="Dual Knobs Range"
+        [dualKnobs]="true"
+        [pin]="true"
+        [pinFormatter]="pinFormatter"
+        [value]="{ lower: 0, upper: 500 }"
+      ></ion-range>
+      <hr
+        style="
+          width: 100%;
+          height: 2px;
+          background: var(--ion-color-primary);
+          opacity: 70%;
+        "
+      />
+
+      <ion-item lines="none">
+        <ion-checkbox labelPlacement="start" justify="space-between"
+          >Search with AI</ion-checkbox
+        >
+      </ion-item>
+      <hr
+        style="
+          width: 100%;
+          height: 2px;
+          background: var(--ion-color-primary);
+          opacity: 70%;
+        "
+      />
+      <br />
+      <ion-button class="search-btn" expand="block" color="primary" shape="round">
+        Apply Search
+      </ion-button>
+      <div class="pushup"></div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="wrapper">
+    <div class="toolbar">
+      <div class="header ion-text-center">
+        <ion-text color="light">Login</ion-text>
+      </div>
+    </div>
+    <div class="logo">
+      <img src="assets/icons/logo-transparent.png" alt="" />
+    </div>
+    <div class="spacer"></div>
+    <div class="content ion-padding">
+      <div class="google">
+        <ion-button color="primary" expand="block" [disabled]="disabled" (click)="signInWithGoogle()">
+          <ion-icon name="logo-google"></ion-icon> &nbsp; Login with Google
+        </ion-button>
+        <h3 *ngIf="error">Error: {{error}}</h3>
+      </div>
+      <div class="guest">
+        <ion-button color="primary" expand="block" [disabled]="disabled" (click)="signInAnonymously()">
+          <ion-icon name="person"></ion-icon> &nbsp; Continue as Guest
+        </ion-button>
+      </div>
+      <div class="dev-mode" *ngIf="devMode">
+        <ion-button color="primary" expand="block" [disabled]="disabled" (click)="fakeSignIn()">
+          <ion-icon name="bug"></ion-icon> &nbsp; Dev Mode
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

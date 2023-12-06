@@ -1,0 +1,7 @@
+{
+  "name": "dawini-ai-index",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

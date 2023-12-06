@@ -1,0 +1,38 @@
+$ion-padding: 16px;
+.tabs {
+  position: fixed;
+  bottom: $ion-padding;
+  left: $ion-padding;
+  right: $ion-padding;
+  color: white;
+  height: 44px;
+  border-radius: 30px;
+  background: var(--ion-color-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: calc(100% - #{$ion-padding * 2});
+  padding: 10px;
+  .tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+
+    border-radius: 100%;
+    //active tab
+    &.active {
+      background: white;
+      ion-icon {
+        color: var(--ion-color-primary);
+      }
+    }
+    ion-icon {
+      font-size: 25px;
+      color: white;
+    }
+
+  }
+}

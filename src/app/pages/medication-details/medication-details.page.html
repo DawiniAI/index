@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="primary" class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="search"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Medication Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="wrapper">
+    <div class="content ion-padding">
+      <img class="medication-picture" [src]="medication.picture" />
+      <div class="scrollable">
+        <div class="details">
+          <div class="title tradename">
+            <ion-text color="primary"> {{medication.tradename}} </ion-text>
+          </div>
+          <div class="title price">
+            <ion-text> {{medication.price}} EGP </ion-text>
+          </div>
+          <div class="details-rows">
+            <div
+              class="{{item}}"
+              *ngFor="let item of ['group','form','company']"
+              [routerLink]="['/search']"
+              [queryParams]="{q:getProperty(item),filter:item}"
+            >
+              <div class="icon">
+                <img src="assets/icons/{{item}}.png" alt="" />
+              </div>
+              <div class="details">
+                <div class="title">
+                  <ion-text color="primary"> {{item}}: </ion-text>
+                </div>
+                <div class="detail">
+                  <ion-text color="dark"> {{getProperty(item)}}</ion-text>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="activeingredients" *ngIf="activeingredients.length">
+            <ion-text class="title" color="primary"
+              >Active Ingredient(s):
+            </ion-text>
+            <ng-container *ngFor="let item of activeingredients">
+              <div
+                class="one-activeingredient"
+                [routerLink]="['/search']"
+                [queryParams]="{q:item,filter:'activeingredient'}"
+              >
+                <span>💊 </span> <ion-text color="dark"> {{item}} </ion-text>
+              </div>
+            </ng-container>
+          </div>
+          <div class="info" *ngIf="medication.info.length">
+            <ion-text class="title" color="primary">Info: </ion-text>
+            <p style="text-transform: lowercase">{{medication.info}}</p>
+          </div>
+          <div class="ion-text-right">
+            <a style="text-decoration: none" href="mailto:osama@dawini.ai"
+              ><ion-text color="danger"> Report Update 🔄 </ion-text></a
+            >
+          </div>
+          <div class="alternatives" *ngIf="alternatives.length">
+            <ion-text class="title" color="primary">Alternatives: </ion-text>
+            <app-medication-card
+              *ngFor="let alternative of alternatives"
+              [medication]="alternative"
+              [routerLink]="['/medication', alternative.id]"
+            ></app-medication-card>
+          </div>
+          <div class="similars" *ngIf="similars.length">
+            <ion-text class="title" color="primary">Similars: </ion-text>
+            <app-medication-card
+              *ngFor="let similar of similars"
+              [medication]="similar"
+              [routerLink]="['/medication', similar.id]"
+            ></app-medication-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-app>
+  <ion-router-outlet id="main-content" [animated]="false"></ion-router-outlet>
+  <ion-footer>
+    <div class="tabs" *ngIf="shouldShowTabs$ | async">
+      <div
+        [ngClass]="{ active: (tabActive$ | async) === tab.tab }"
+        class="tab"
+        *ngFor="let tab of tabs"
+      >
+        <ion-icon
+          [name]="
+            (tabActive$ | async) === tab.tab ? tab.icon : tab.icon + '-outline'
+          "
+        ></ion-icon>
+      </div>
+    </div>
+  </ion-footer>
+</ion-app>
